@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button login_button;
+
+    private TextView sign_up;
 
 
     @Override
@@ -34,6 +37,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        sign_up = (TextView) findViewById(R.id.sign_up);
+        sign_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sign_up = new Intent(MainActivity.this, Sign_up.class);
+                startActivity(sign_up);
+
+            }
+        });
+
     }
 
     private void checkAccount(String username, String password){

@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -21,11 +22,15 @@ import com.example.cashierapp.fragments.HistoryFragment;
 import com.example.cashierapp.fragments.HomeFragment;
 import com.example.cashierapp.fragments.PaymentFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainMenu extends AppCompatActivity {
 
-
     BottomNavigationView bottomNavigation;
+    FloatingActionButton add_item_button;
+
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -36,6 +41,18 @@ public class MainMenu extends AppCompatActivity {
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         openFragment(HomeFragment.newInstance("", ""));
+
+        add_item_button = findViewById(R.id.add_item_button);
+
+        add_item_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent add_item = new Intent(MainMenu.this, AddItem.class);
+                startActivity(add_item);
+            }
+        });
+
+
     }
 
     public void openFragment(Fragment fragment) {
@@ -43,6 +60,8 @@ public class MainMenu extends AppCompatActivity {
         transaction.replace(R.id.container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+
+
     }
 
 
