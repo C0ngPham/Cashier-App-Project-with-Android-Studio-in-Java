@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cashierapp.ITEM;
+import com.example.cashierapp.Models.ITEM;
 import com.example.cashierapp.R;
 
 import java.util.ArrayList;
@@ -89,7 +89,8 @@ public class HomeFragment extends Fragment {
         return v;
     }
 
-    private void genMockData() {
+    public void genMockData() {
+        data.add(new ITEM("Coffee",30000, "Black ice coffee no sugar", R.drawable.example));
         data.add(new ITEM("Coffee",30000, "Black ice coffee no sugar", R.drawable.example));
 
     }

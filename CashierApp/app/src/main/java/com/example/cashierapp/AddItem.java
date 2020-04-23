@@ -1,16 +1,12 @@
 package com.example.cashierapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AddItem extends AppCompatActivity {
 
@@ -20,7 +16,7 @@ public class AddItem extends AppCompatActivity {
     Button cancel_add_item;
     Button confirm_add_item;
 
-    ArrayList <String> item_name;
+
 
 
     @Override
@@ -39,6 +35,13 @@ public class AddItem extends AppCompatActivity {
             public void onClick(View v) {
                 Intent it_add_item = new Intent(AddItem.this, MainMenu.class);
                 startActivity(it_add_item);
+            }
+        });
+
+        confirm_add_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }

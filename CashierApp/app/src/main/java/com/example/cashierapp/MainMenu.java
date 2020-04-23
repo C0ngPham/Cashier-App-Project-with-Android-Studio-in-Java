@@ -122,6 +122,7 @@ public class MainMenu extends AppCompatActivity {
                         Toast.makeText(MainMenu.this, "Logged Out", Toast.LENGTH_LONG).show();
                         Intent it3 = new Intent(MainMenu.this, MainActivity.class);
                         startActivity(it3);
+                        finish();
                     }
                 });
                 bd2.setNegativeButton("Cancel",null);

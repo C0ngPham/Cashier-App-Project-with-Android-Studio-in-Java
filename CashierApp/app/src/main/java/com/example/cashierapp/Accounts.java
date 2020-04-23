@@ -1,8 +1,8 @@
 package com.example.cashierapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Accounts extends AppCompatActivity {
 
@@ -10,5 +10,7 @@ public class Accounts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accounts);
+        setTitle("Account");
+
     }
 }
