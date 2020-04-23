@@ -18,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.cashierapp.Modules.Accounts;
+import com.example.cashierapp.Modules.settings;
 import com.example.cashierapp.fragments.HistoryFragment;
 import com.example.cashierapp.fragments.HomeFragment;
 import com.example.cashierapp.fragments.PaymentFragment;

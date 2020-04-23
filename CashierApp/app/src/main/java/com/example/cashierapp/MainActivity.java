@@ -17,6 +17,7 @@ import androidx.room.Room;
 import com.example.cashierapp.Database.UserDao;
 import com.example.cashierapp.Database.UserRoomDatabase;
 import com.example.cashierapp.Models.USER;
+import com.example.cashierapp.Modules.Sign_up;
 
 public class MainActivity extends AppCompatActivity {
 
