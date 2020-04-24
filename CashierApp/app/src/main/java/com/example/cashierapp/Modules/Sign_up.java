@@ -70,23 +70,30 @@ public class Sign_up extends AppCompatActivity {
         buttonSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String name = editUserName.getText().toString();
+                final String username = editUserName.getText().toString().trim();
+                final String password = editPassword.getText().toString().trim();
+                String passwordConf = editRePassword.getText().toString().trim();
+
                 if (!isEmpty()) {
+                    if (password.equals(passwordConf)){
 
-                    progressDialog.show();
+                        progressDialog.show();
 
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            USER user = new USER(editName.getText().toString(), editUserName.getText().toString(),
-                                    editPassword.getText().toString());
-                            userDao.insert(user);
-                            progressDialog.dismiss();
-                            startActivity(new Intent(Sign_up.this, MainActivity.class));
-                        }
-                    }, 1000);
-
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                USER user = new USER(name,username,password);
+                                userDao.insert(user);
+                                progressDialog.dismiss();
+                                startActivity(new Intent(Sign_up.this, MainActivity.class));
+                            }
+                        }, 1000);
+                    }
+                    else {
+                        Toast.makeText(Sign_up.this, "Password is not matching", Toast.LENGTH_SHORT).show();
+                    }
                 }
-
                 else {
                     Toast.makeText(Sign_up.this, "Empty Fields", Toast.LENGTH_SHORT).show();
                 }
@@ -95,16 +102,6 @@ public class Sign_up extends AppCompatActivity {
 
 
     }
-
-    private boolean isDifferrent() {
-        if ((editPassword.getText().toString()) == (editRePassword.getText().toString())
-        ) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     private boolean isEmpty() {
         if (TextUtils.isEmpty(editName.getText().toString()) ||
                 TextUtils.isEmpty(editUserName.getText().toString()) ||

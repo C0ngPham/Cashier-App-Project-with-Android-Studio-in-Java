@@ -1,5 +1,6 @@
 package com.example.cashierapp.Modules;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -15,22 +16,23 @@ public class Accounts extends AppCompatActivity {
     private TextView change_password;
     private USER user;
 
-
-
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accounts);
         setTitle("Account");
 
+        user = (USER) getIntent().getSerializableExtra("USER");
+
         tv_id = findViewById(R.id.tv_id);
         tv_name = findViewById(R.id.tv_name);
         change_password = findViewById(R.id.change_password);
 
-        user = (USER) getIntent().getSerializableExtra("User");
-
         if (user != null) {
-            tv_name.setText("User ID: " + user.getAccount_name());
+            tv_id.setText("User ID:" + user.getId());
+            tv_name.setText("User Name:" + user.getAccount_name());
         }
+
     }
 }

@@ -24,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button login_button;
-
     private TextView sign_up;
-    private UserRoomDatabase database;
 
+    private UserRoomDatabase database;
     private UserDao userDao;
+
     private ProgressDialog progressDialog;
 
 
@@ -68,15 +68,21 @@ public class MainActivity extends AppCompatActivity {
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (!emptyValidation()) {
                     progressDialog.show();
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            USER user = userDao.getUser(username.getText().toString(), password.getText().toString());
+                            String usr = username.getText().toString().trim();
+                            String psw = password.getText().toString().trim();
+                            USER user = userDao.getUser(usr, psw);
+
                             if(user!=null){
                                 Intent i = new Intent(MainActivity.this, MainMenu.class);
-                                i.putExtra("User", user);
+                                i.putExtra("USER", user);
+                                Toast.makeText(MainActivity.this, "Welcome to Cashier", Toast.LENGTH_SHORT).show();
+
                                 startActivity(i);
                                 finish();
                             }else{
@@ -91,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
     }
 
     private boolean emptyValidation() {
@@ -102,21 +106,4 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     }
-
-
-    /*private void checkAccount(String username, String password){
-        Context ct = getApplicationContext();
-        int duaration = Toast.LENGTH_SHORT;
-
-        if (username.equals("admin") && password.equals("admin")){
-            Toast.makeText(ct, "Login Success", duaration).show();
-            Intent it = new Intent(MainActivity.this, MainMenu.class);
-            startActivity(it);
-            finish();
-        }
-        else{
-            Toast.makeText(ct, "Incorrect Username or Password", duaration).show();
-
-        }
-    }*/
 }
