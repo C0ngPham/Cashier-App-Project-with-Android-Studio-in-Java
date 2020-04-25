@@ -1,6 +1,5 @@
 package com.example.cashierapp.Modules;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -11,12 +10,11 @@ import com.example.cashierapp.R;
 
 public class Accounts extends AppCompatActivity {
 
-    private TextView tv_name;
-    private TextView tv_id;
-    private TextView change_password;
-    private USER user;
+    public TextView tv_name;
+    public TextView tv_id;
+    public TextView change_password;
+    public USER user;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

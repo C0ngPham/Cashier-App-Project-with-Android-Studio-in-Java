@@ -13,6 +13,7 @@ public interface UserDao {
     @Query("SELECT * FROM USER where username= :username and password= :password")
     USER getUser(String username, String password);
 
+
     @Insert
     void insert(USER user);
 
