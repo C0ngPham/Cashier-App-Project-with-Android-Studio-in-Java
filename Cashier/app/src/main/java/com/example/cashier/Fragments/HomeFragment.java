@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cashier.Models.Item;
+import com.example.cashier.Modules.Accounts;
 import com.example.cashier.R;
 
 import java.util.ArrayList;
@@ -31,10 +33,6 @@ public class HomeFragment extends Fragment {
     RecyclerView home_item_recyclerView;
     MyAdapter adapter;
     ArrayList <Item> data = new ArrayList<>();
-
-
-
-
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -83,14 +81,30 @@ public class HomeFragment extends Fragment {
 
         home_item_recyclerView.setAdapter(adapter);
         home_item_recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        //home_item_recyclerView.addItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
+
+        home_item_recyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
 
         return v;
     }
 
     public void genMockData() {
-        data.add(new Item("Coffee",30000, "Black ice coffee no sugar", R.drawable.example));
-        data.add(new Item("Coffee",30000, "Black ice coffee no sugar", R.drawable.example));
+        data.add(new Item("Hazelnut Macchiato",30000, "Sweet", R.drawable.cf1));
+        data.add(new Item("Ristretto Bianco",25000, "Sweet", R.drawable.cf2));
+        data.add(new Item("Black Coffee",18000, "Sweet", R.drawable.cf3));
+        data.add(new Item("Milk Coffee",20000, "Sweet", R.drawable.cf4));
+        data.add(new Item("Espresso",35000, "Sweet", R.drawable.cf5));
+        data.add(new Item("Americano Ice ",32000, "Sweet", R.drawable.cf6));
+        data.add(new Item("Milk Ice Coffee ",22000, "Sweet", R.drawable.cf7));
+        data.add(new Item("Caramel Macchiato ",32000, "Sweet", R.drawable.cf8));
+        data.add(new Item("Ice Mocha",38000, "Sweet", R.drawable.cf9));
+        data.add(new Item("Espresso Con Panna",40000, "Sweet", R.drawable.cf10));
 
     }
 
@@ -138,7 +152,7 @@ public class HomeFragment extends Fragment {
 
             item_name = itemView.findViewById(R.id.item_name);
             item_price = itemView.findViewById(R.id.item_price);
-            item_description = itemView.findViewById(R.id.item_description);
+            item_description = itemView.findViewById(R.id.item_des);
             item_img = itemView.findViewById(R.id.item_img);
 
         }

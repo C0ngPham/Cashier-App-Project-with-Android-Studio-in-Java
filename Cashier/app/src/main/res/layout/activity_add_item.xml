@@ -8,25 +8,35 @@
     tools:context=".AddItem">
 
     <EditText
-        android:id="@+id/add_item_name"
+        android:id="@+id/it_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginTop="40dp"
         android:layout_weight="0"
         android:ems="10"
-        android:hint="Add item Name"
+        android:hint="Name"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/add_item_price"
+        android:id="@+id/it_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_weight="0"
         android:ems="10"
-        android:hint="Add Price"
+        android:hint="Price"
         android:inputType="number" />
+
+    <EditText
+        android:id="@+id/it_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_weight="0"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textLongMessage" />
 
     <LinearLayout
         android:layout_width="match_parent"
